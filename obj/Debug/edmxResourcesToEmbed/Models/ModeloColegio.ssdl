@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloColegio.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloColegioStoreContainer">
+    <EntitySet Name="Estudiantes" EntityType="ModeloColegio.Store.Estudiantes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Maestros" EntityType="ModeloColegio.Store.Maestros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Matriculas" EntityType="ModeloColegio.Store.Matriculas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="ModeloColegio.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="ModeloColegio.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permisos" EntityType="ModeloColegio.Store.Permisos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tutores" EntityType="ModeloColegio.Store.Tutores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grados" EntityType="ModeloColegio.Store.Grados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Secciones" EntityType="ModeloColegio.Store.Secciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materias" EntityType="ModeloColegio.Store.Materias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Calificaciones" EntityType="ModeloColegio.Store.Calificaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Periodos" EntityType="ModeloColegio.Store.Periodos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GradosEnCursos" EntityType="ModeloColegio.Store.GradosEnCursos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Colegios" EntityType="ModeloColegio.Store.Colegios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TutorMatricula" Association="ModeloColegio.Store.TutorMatricula">
+      <End Role="Tutor" EntitySet="Tutores" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="EstudianteMatricula" Association="ModeloColegio.Store.EstudianteMatricula">
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="RolUsuario" Association="ModeloColegio.Store.RolUsuario">
+      <End Role="Rol" EntitySet="Roles" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RolPermiso" Association="ModeloColegio.Store.RolPermiso">
+      <End Role="Rol" EntitySet="Roles" />
+      <End Role="Permiso" EntitySet="Permisos" />
+    </AssociationSet>
+    <AssociationSet Name="GradoMatricula" Association="ModeloColegio.Store.GradoMatricula">
+      <End Role="Grado" EntitySet="Grados" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="MateriaCalificacion" Association="ModeloColegio.Store.MateriaCalificacion">
+      <End Role="Materia" EntitySet="Materias" />
+      <End Role="Calificacion" EntitySet="Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="EstudianteCalificacion" Association="ModeloColegio.Store.EstudianteCalificacion">
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+      <End Role="Calificacion" EntitySet="Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="PeriodoMatricula" Association="ModeloColegio.Store.PeriodoMatricula">
+      <End Role="Periodo" EntitySet="Periodos" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="GradoGradoEnCurso" Association="ModeloColegio.Store.GradoGradoEnCurso">
+      <End Role="Grado" EntitySet="Grados" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <AssociationSet Name="MaestroGradoEnCurso" Association="ModeloColegio.Store.MaestroGradoEnCurso">
+      <End Role="Maestro" EntitySet="Maestros" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <AssociationSet Name="GradoEnCursoMateria" Association="ModeloColegio.Store.GradoEnCursoMateria">
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+      <End Role="Materia" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="SeccionGradoEnCurso" Association="ModeloColegio.Store.SeccionGradoEnCurso">
+      <End Role="Seccion" EntitySet="Secciones" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioMatricula" Association="ModeloColegio.Store.ColegioMatricula">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioEstudiante" Association="ModeloColegio.Store.ColegioEstudiante">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioMaestro" Association="ModeloColegio.Store.ColegioMaestro">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Maestro" EntitySet="Maestros" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioSeccion" Association="ModeloColegio.Store.ColegioSeccion">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Seccion" EntitySet="Secciones" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioUsuario" Association="ModeloColegio.Store.ColegioUsuario">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Estudiantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoEstudiante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="ColegioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Maestros">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoMaestro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="ColegioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matriculas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TutorId" Type="int" Nullable="false" />
+    <Property Name="EstudianteId" Type="int" Nullable="false" />
+    <Property Name="GradoId" Type="int" Nullable="false" />
+    <Property Name="PeriodoId" Type="int" Nullable="false" />
+    <Property Name="CodigoMatricula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ColegioProcedencia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Repitente" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="ColegioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NombreDeUsuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClaveUsuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CorreoRecuperacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="ColegioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreRol" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DescripcionRol" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tutores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RelacionConElEstudiante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nivel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Secciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CapacidadEstudiantes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ColegioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GradoEnCursoId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Grado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calificaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MateriaId" Type="int" Nullable="false" />
+    <Property Name="EstudianteId" Type="int" Nullable="false" />
+    <Property Name="NotaCualitativa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NotaNumerica" Type="float" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GradosEnCursos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GradoId" Type="int" Nullable="false" />
+    <Property Name="MaestroId" Type="int" Nullable="false" />
+    <Property Name="SeccionId" Type="int" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colegios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoColegio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="TutorMatricula">
+    <End Role="Tutor" Type="ModeloColegio.Store.Tutores" Multiplicity="1" />
+    <End Role="Matricula" Type="ModeloColegio.Store.Matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="TutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstudianteMatricula">
+    <End Role="Estudiante" Type="ModeloColegio.Store.Estudiantes" Multiplicity="1" />
+    <End Role="Matricula" Type="ModeloColegio.Store.Matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="EstudianteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolUsuario">
+    <End Role="Rol" Type="ModeloColegio.Store.Roles" Multiplicity="1" />
+    <End Role="Usuario" Type="ModeloColegio.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolPermiso">
+    <End Role="Rol" Type="ModeloColegio.Store.Roles" Multiplicity="1" />
+    <End Role="Permiso" Type="ModeloColegio.Store.Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permiso">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradoMatricula">
+    <End Role="Grado" Type="ModeloColegio.Store.Grados" Multiplicity="1" />
+    <End Role="Matricula" Type="ModeloColegio.Store.Matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MateriaCalificacion">
+    <End Role="Materia" Type="ModeloColegio.Store.Materias" Multiplicity="1" />
+    <End Role="Calificacion" Type="ModeloColegio.Store.Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calificacion">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstudianteCalificacion">
+    <End Role="Estudiante" Type="ModeloColegio.Store.Estudiantes" Multiplicity="1" />
+    <End Role="Calificacion" Type="ModeloColegio.Store.Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calificacion">
+        <PropertyRef Name="EstudianteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PeriodoMatricula">
+    <End Role="Periodo" Type="ModeloColegio.Store.Periodos" Multiplicity="1" />
+    <End Role="Matricula" Type="ModeloColegio.Store.Matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradoGradoEnCurso">
+    <End Role="Grado" Type="ModeloColegio.Store.Grados" Multiplicity="1" />
+    <End Role="GradoEnCurso" Type="ModeloColegio.Store.GradosEnCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaestroGradoEnCurso">
+    <End Role="Maestro" Type="ModeloColegio.Store.Maestros" Multiplicity="1" />
+    <End Role="GradoEnCurso" Type="ModeloColegio.Store.GradosEnCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maestro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="MaestroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradoEnCursoMateria">
+    <End Role="GradoEnCurso" Type="ModeloColegio.Store.GradosEnCursos" Multiplicity="1" />
+    <End Role="Materia" Type="ModeloColegio.Store.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GradoEnCurso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="GradoEnCursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeccionGradoEnCurso">
+    <End Role="Seccion" Type="ModeloColegio.Store.Secciones" Multiplicity="1" />
+    <End Role="GradoEnCurso" Type="ModeloColegio.Store.GradosEnCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seccion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="SeccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioMatricula">
+    <End Role="Colegio" Type="ModeloColegio.Store.Colegios" Multiplicity="1" />
+    <End Role="Matricula" Type="ModeloColegio.Store.Matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioEstudiante">
+    <End Role="Colegio" Type="ModeloColegio.Store.Colegios" Multiplicity="1" />
+    <End Role="Estudiante" Type="ModeloColegio.Store.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioMaestro">
+    <End Role="Colegio" Type="ModeloColegio.Store.Colegios" Multiplicity="1" />
+    <End Role="Maestro" Type="ModeloColegio.Store.Maestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Maestro">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioSeccion">
+    <End Role="Colegio" Type="ModeloColegio.Store.Colegios" Multiplicity="1" />
+    <End Role="Seccion" Type="ModeloColegio.Store.Secciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seccion">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioUsuario">
+    <End Role="Colegio" Type="ModeloColegio.Store.Colegios" Multiplicity="1" />
+    <End Role="Usuario" Type="ModeloColegio.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

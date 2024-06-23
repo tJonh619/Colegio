@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloColegio" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModeloColegioContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estudiantes" EntityType="ModeloColegio.Estudiante" />
+    <EntitySet Name="Maestros" EntityType="ModeloColegio.Maestro" />
+    <EntitySet Name="Matriculas" EntityType="ModeloColegio.Matricula" />
+    <EntitySet Name="Usuarios" EntityType="ModeloColegio.Usuario" />
+    <EntitySet Name="Roles" EntityType="ModeloColegio.Rol" />
+    <EntitySet Name="Permisos" EntityType="ModeloColegio.Permiso" />
+    <EntitySet Name="Tutores" EntityType="ModeloColegio.Tutor" />
+    <EntitySet Name="Grados" EntityType="ModeloColegio.Grado" />
+    <EntitySet Name="Secciones" EntityType="ModeloColegio.Seccion" />
+    <AssociationSet Name="TutorMatricula" Association="ModeloColegio.TutorMatricula">
+      <End Role="Tutor" EntitySet="Tutores" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="EstudianteMatricula" Association="ModeloColegio.EstudianteMatricula">
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="RolUsuario" Association="ModeloColegio.RolUsuario">
+      <End Role="Rol" EntitySet="Roles" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RolPermiso" Association="ModeloColegio.RolPermiso">
+      <End Role="Rol" EntitySet="Roles" />
+      <End Role="Permiso" EntitySet="Permisos" />
+    </AssociationSet>
+    <EntitySet Name="Materias" EntityType="ModeloColegio.Materia" />
+    <AssociationSet Name="GradoMatricula" Association="ModeloColegio.GradoMatricula">
+      <End Role="Grado" EntitySet="Grados" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <EntitySet Name="Calificaciones" EntityType="ModeloColegio.Calificacion" />
+    <AssociationSet Name="MateriaCalificacion" Association="ModeloColegio.MateriaCalificacion">
+      <End Role="Materia" EntitySet="Materias" />
+      <End Role="Calificacion" EntitySet="Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="EstudianteCalificacion" Association="ModeloColegio.EstudianteCalificacion">
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+      <End Role="Calificacion" EntitySet="Calificaciones" />
+    </AssociationSet>
+    <EntitySet Name="Periodos" EntityType="ModeloColegio.Periodo" />
+    <AssociationSet Name="PeriodoMatricula" Association="ModeloColegio.PeriodoMatricula">
+      <End Role="Periodo" EntitySet="Periodos" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <EntitySet Name="GradosEnCursos" EntityType="ModeloColegio.GradoEnCurso" />
+    <AssociationSet Name="GradoGradoEnCurso" Association="ModeloColegio.GradoGradoEnCurso">
+      <End Role="Grado" EntitySet="Grados" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <AssociationSet Name="MaestroGradoEnCurso" Association="ModeloColegio.MaestroGradoEnCurso">
+      <End Role="Maestro" EntitySet="Maestros" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <AssociationSet Name="GradoEnCursoMateria" Association="ModeloColegio.GradoEnCursoMateria">
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+      <End Role="Materia" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="SeccionGradoEnCurso" Association="ModeloColegio.SeccionGradoEnCurso">
+      <End Role="Seccion" EntitySet="Secciones" />
+      <End Role="GradoEnCurso" EntitySet="GradosEnCursos" />
+    </AssociationSet>
+    <EntitySet Name="Colegios" EntityType="ModeloColegio.Colegio" />
+    <AssociationSet Name="ColegioMatricula" Association="ModeloColegio.ColegioMatricula">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioEstudiante" Association="ModeloColegio.ColegioEstudiante">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Estudiante" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioMaestro" Association="ModeloColegio.ColegioMaestro">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Maestro" EntitySet="Maestros" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioSeccion" Association="ModeloColegio.ColegioSeccion">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Seccion" EntitySet="Secciones" />
+    </AssociationSet>
+    <AssociationSet Name="ColegioUsuario" Association="ModeloColegio.ColegioUsuario">
+      <End Role="Colegio" EntitySet="Colegios" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Matricula" Relationship="ModeloColegio.EstudianteMatricula" FromRole="Estudiante" ToRole="Matricula" />
+    <NavigationProperty Name="Calificacion" Relationship="ModeloColegio.EstudianteCalificacion" FromRole="Estudiante" ToRole="Calificacion" />
+    <Property Name="CodigoEstudiante" Type="String" Nullable="false" />
+    <Property Name="Nombres" Type="String" Nullable="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioEstudiante" FromRole="Estudiante" ToRole="Colegio" />
+    <Property Name="ColegioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Maestro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="GradoEnCurso" Relationship="ModeloColegio.MaestroGradoEnCurso" FromRole="Maestro" ToRole="GradoEnCurso" />
+    <Property Name="CodigoMaestro" Type="String" Nullable="false" />
+    <Property Name="Cedula" Type="String" Nullable="false" />
+    <Property Name="Nombres" Type="String" Nullable="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" />
+    <Property Name="Correo" Type="String" Nullable="false" />
+    <Property Name="Celular" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioMaestro" FromRole="Maestro" ToRole="Colegio" />
+    <Property Name="ColegioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Tutor" Relationship="ModeloColegio.TutorMatricula" FromRole="Matricula" ToRole="Tutor" />
+    <Property Name="TutorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estudiante" Relationship="ModeloColegio.EstudianteMatricula" FromRole="Matricula" ToRole="Estudiante" />
+    <Property Name="EstudianteId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Grado" Relationship="ModeloColegio.GradoMatricula" FromRole="Matricula" ToRole="Grado" />
+    <Property Name="GradoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Periodo" Relationship="ModeloColegio.PeriodoMatricula" FromRole="Matricula" ToRole="Periodo" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CodigoMatricula" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="ColegioProcedencia" Type="String" Nullable="false" />
+    <Property Name="Repitente" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="String" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioMatricula" FromRole="Matricula" ToRole="Colegio" />
+    <Property Name="ColegioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rol" Relationship="ModeloColegio.RolUsuario" FromRole="Usuario" ToRole="Rol" />
+    <Property Name="RolId" Type="Int32" Nullable="false" />
+    <Property Name="Nombres" Type="String" Nullable="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" />
+    <Property Name="NombreDeUsuario" Type="String" Nullable="false" />
+    <Property Name="ClaveUsuario" Type="String" Nullable="false" />
+    <Property Name="CorreoRecuperacion" Type="String" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioUsuario" FromRole="Usuario" ToRole="Colegio" />
+    <Property Name="ColegioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="ModeloColegio.RolUsuario" FromRole="Rol" ToRole="Usuario" />
+    <NavigationProperty Name="Permiso" Relationship="ModeloColegio.RolPermiso" FromRole="Rol" ToRole="Permiso" />
+    <Property Name="NombreRol" Type="String" Nullable="false" />
+    <Property Name="DescripcionRol" Type="String" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rol" Relationship="ModeloColegio.RolPermiso" FromRole="Permiso" ToRole="Rol" />
+    <Property Name="RolId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tutor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Matricula" Relationship="ModeloColegio.TutorMatricula" FromRole="Tutor" ToRole="Matricula" />
+    <Property Name="Nombres" Type="String" Nullable="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" />
+    <Property Name="RelacionConElEstudiante" Type="String" Nullable="false" />
+    <Property Name="Cedula" Type="String" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" />
+    <Property Name="Celular" Type="String" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Matricula" Relationship="ModeloColegio.GradoMatricula" FromRole="Grado" ToRole="Matricula" />
+    <NavigationProperty Name="GradoEnCurso" Relationship="ModeloColegio.GradoGradoEnCurso" FromRole="Grado" ToRole="GradoEnCurso" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Nivel" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="GradoEnCurso" Relationship="ModeloColegio.SeccionGradoEnCurso" FromRole="Seccion" ToRole="GradoEnCurso" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="CapacidadEstudiantes" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="String" Nullable="false" />
+    <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioSeccion" FromRole="Seccion" ToRole="Colegio" />
+    <Property Name="ColegioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="TutorMatricula">
+    <End Type="ModeloColegio.Tutor" Role="Tutor" Multiplicity="1" />
+    <End Type="ModeloColegio.Matricula" Role="Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="TutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstudianteMatricula">
+    <End Type="ModeloColegio.Estudiante" Role="Estudiante" Multiplicity="1" />
+    <End Type="ModeloColegio.Matricula" Role="Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="EstudianteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolUsuario">
+    <End Type="ModeloColegio.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="ModeloColegio.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolPermiso">
+    <End Type="ModeloColegio.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="ModeloColegio.Permiso" Role="Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permiso">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Calificacion" Relationship="ModeloColegio.MateriaCalificacion" FromRole="Materia" ToRole="Calificacion" />
+    <NavigationProperty Name="GradoEnCurso" Relationship="ModeloColegio.GradoEnCursoMateria" FromRole="Materia" ToRole="GradoEnCurso" />
+    <Property Name="GradoEnCursoId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Grado" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <Association Name="GradoMatricula">
+    <End Type="ModeloColegio.Grado" Role="Grado" Multiplicity="1" />
+    <End Type="ModeloColegio.Matricula" Role="Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Calificacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Materia" Relationship="ModeloColegio.MateriaCalificacion" FromRole="Calificacion" ToRole="Materia" />
+    <Property Name="MateriaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estudiante" Relationship="ModeloColegio.EstudianteCalificacion" FromRole="Calificacion" ToRole="Estudiante" />
+    <Property Name="EstudianteId" Type="Int32" Nullable="false" />
+    <Property Name="NotaCualitativa" Type="String" Nullable="false" />
+    <Property Name="NotaNumerica" Type="Double" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <Association Name="MateriaCalificacion">
+    <End Type="ModeloColegio.Materia" Role="Materia" Multiplicity="1" />
+    <End Type="ModeloColegio.Calificacion" Role="Calificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calificacion">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstudianteCalificacion">
+    <End Type="ModeloColegio.Estudiante" Role="Estudiante" Multiplicity="1" />
+    <End Type="ModeloColegio.Calificacion" Role="Calificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calificacion">
+        <PropertyRef Name="EstudianteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Periodo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Matricula" Relationship="ModeloColegio.PeriodoMatricula" FromRole="Periodo" ToRole="Matricula" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <Association Name="PeriodoMatricula">
+    <End Type="ModeloColegio.Periodo" Role="Periodo" Multiplicity="1" />
+    <End Type="ModeloColegio.Matricula" Role="Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GradoEnCurso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Grado" Relationship="ModeloColegio.GradoGradoEnCurso" FromRole="GradoEnCurso" ToRole="Grado" />
+    <Property Name="GradoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Maestro" Relationship="ModeloColegio.MaestroGradoEnCurso" FromRole="GradoEnCurso" ToRole="Maestro" />
+    <Property Name="MaestroId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Materia" Relationship="ModeloColegio.GradoEnCursoMateria" FromRole="GradoEnCurso" ToRole="Materia" />
+    <NavigationProperty Name="Seccion" Relationship="ModeloColegio.SeccionGradoEnCurso" FromRole="GradoEnCurso" ToRole="Seccion" />
+    <Property Name="SeccionId" Type="Int32" Nullable="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+  </EntityType>
+  <Association Name="GradoGradoEnCurso">
+    <End Type="ModeloColegio.Grado" Role="Grado" Multiplicity="1" />
+    <End Type="ModeloColegio.GradoEnCurso" Role="GradoEnCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaestroGradoEnCurso">
+    <End Type="ModeloColegio.Maestro" Role="Maestro" Multiplicity="1" />
+    <End Type="ModeloColegio.GradoEnCurso" Role="GradoEnCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maestro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="MaestroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradoEnCursoMateria">
+    <End Type="ModeloColegio.GradoEnCurso" Role="GradoEnCurso" Multiplicity="1" />
+    <End Type="ModeloColegio.Materia" Role="Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GradoEnCurso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="GradoEnCursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeccionGradoEnCurso">
+    <End Type="ModeloColegio.Seccion" Role="Seccion" Multiplicity="1" />
+    <End Type="ModeloColegio.GradoEnCurso" Role="GradoEnCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seccion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradoEnCurso">
+        <PropertyRef Name="SeccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Colegio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoColegio" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" />
+    <Property Name="Correo" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Matricula" Relationship="ModeloColegio.ColegioMatricula" FromRole="Colegio" ToRole="Matricula" />
+    <NavigationProperty Name="Estudiante" Relationship="ModeloColegio.ColegioEstudiante" FromRole="Colegio" ToRole="Estudiante" />
+    <NavigationProperty Name="Maestro" Relationship="ModeloColegio.ColegioMaestro" FromRole="Colegio" ToRole="Maestro" />
+    <NavigationProperty Name="Seccion" Relationship="ModeloColegio.ColegioSeccion" FromRole="Colegio" ToRole="Seccion" />
+    <NavigationProperty Name="Usuario" Relationship="ModeloColegio.ColegioUsuario" FromRole="Colegio" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="ColegioMatricula">
+    <End Type="ModeloColegio.Colegio" Role="Colegio" Multiplicity="1" />
+    <End Type="ModeloColegio.Matricula" Role="Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioEstudiante">
+    <End Type="ModeloColegio.Colegio" Role="Colegio" Multiplicity="1" />
+    <End Type="ModeloColegio.Estudiante" Role="Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioMaestro">
+    <End Type="ModeloColegio.Colegio" Role="Colegio" Multiplicity="1" />
+    <End Type="ModeloColegio.Maestro" Role="Maestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Maestro">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioSeccion">
+    <End Type="ModeloColegio.Colegio" Role="Colegio" Multiplicity="1" />
+    <End Type="ModeloColegio.Seccion" Role="Seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seccion">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColegioUsuario">
+    <End Type="ModeloColegio.Colegio" Role="Colegio" Multiplicity="1" />
+    <End Type="ModeloColegio.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="ColegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
