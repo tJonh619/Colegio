@@ -9,6 +9,7 @@
 
 namespace ApiColegio.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -22,10 +23,12 @@ namespace ApiColegio.Models
         public string ClaveUsuario { get; set; }
         public string CorreoRecuperacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
-        public byte Activo { get; set; }
+        public bool Activo { get; set; }
         public int ColegioId { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Rol Rol { get; set; }
+        [JsonIgnore]
         public virtual Colegio Colegio { get; set; }
     }
 }

@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89b5e262d94446059d6c3fa6f7f03653" Name="Diagram1" ZoomLevel="72" >
+      <Diagram DiagramId="89b5e262d94446059d6c3fa6f7f03653" Name="Diagram1" ZoomLevel="88" >
         <EntityTypeShape EntityType="ModeloColegio.Estudiante" Width="2" PointX="6.375" PointY="8.625" />
         <EntityTypeShape EntityType="ModeloColegio.Maestro" Width="2" PointX="1.75" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ModeloColegio.Matricula" Width="1.75" PointX="9.25" PointY="8.625" />
-        <EntityTypeShape EntityType="ModeloColegio.Usuario" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloColegio.Usuario" Width="1.5" PointX="6.25" PointY="0.5" />
         <EntityTypeShape EntityType="ModeloColegio.Rol" Width="1.5" PointX="10.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModeloColegio.Permiso" Width="1.5" PointX="13.5" PointY="0.75" />
         <EntityTypeShape EntityType="ModeloColegio.Tutor" Width="2.5" PointX="11.875" PointY="8.625" IsExpanded="true" />

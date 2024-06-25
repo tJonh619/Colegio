@@ -1,0 +1,25 @@
+{
+  "dependencies": {},
+  "parameters": {
+    "ApiColegio20240624010004.resourceGroupLocation": {
+      "Name": "ApiColegio20240624010004.resourceGroupLocation",
+      "Type": null,
+      "Value": "eastus"
+    },
+    "ApiColegio20240624010004.resourceGroupName": {
+      "Name": "ApiColegio20240624010004.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "NetworkWatcherRG"
+    },
+    "ApiColegio20240624010004.resourceName": {
+      "Name": "ApiColegio20240624010004.resourceName",
+      "Type": null,
+      "Value": "ApiColegio20240624010004"
+    },
+    "ApiColegio20240624010004.subscriptionId": {
+      "Name": "ApiColegio20240624010004.subscriptionId",
+      "Type": "subscription",
+      "Value": "74a56df3-4355-40d5-bddd-3451f60701b9"
+    }
+  }
+}

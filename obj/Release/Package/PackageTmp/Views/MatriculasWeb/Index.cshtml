@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ApiColegio.Models.Matricula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoMatricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ColegioProcedencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Repitente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tutor.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estudiante.CodigoEstudiante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grado.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Periodo.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Colegio.CodigoColegio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoMatricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColegioProcedencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Repitente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tutor.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estudiante.CodigoEstudiante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Periodo.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Colegio.CodigoColegio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

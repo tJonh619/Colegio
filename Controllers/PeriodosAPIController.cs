@@ -16,13 +16,13 @@ namespace ApiColegio.Controllers
     {
         private ModeloColegioContainer db = new ModeloColegioContainer();
 
-        // GET: api/PeriodosWeb
+        // GET: api/PeriodosAPI
         public IQueryable<Periodo> GetPeriodos()
         {
             return db.Periodos;
         }
 
-        // GET: api/PeriodosWeb/5
+        // GET: api/PeriodosAPI/5
         [ResponseType(typeof(Periodo))]
         public IHttpActionResult GetPeriodo(int id)
         {
@@ -35,7 +35,7 @@ namespace ApiColegio.Controllers
             return Ok(periodo);
         }
 
-        // PUT: api/PeriodosWeb/5
+        // PUT: api/PeriodosAPI/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPeriodo(int id, Periodo periodo)
         {
@@ -70,7 +70,7 @@ namespace ApiColegio.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/PeriodosWeb
+        // POST: api/PeriodosAPI
         [ResponseType(typeof(Periodo))]
         public IHttpActionResult PostPeriodo(Periodo periodo)
         {
@@ -85,7 +85,7 @@ namespace ApiColegio.Controllers
             return CreatedAtRoute("DefaultApi", new { id = periodo.Id }, periodo);
         }
 
-        // DELETE: api/PeriodosWeb/5
+        // DELETE: api/PeriodosAPI/5
         [ResponseType(typeof(Periodo))]
         public IHttpActionResult DeletePeriodo(int id)
         {

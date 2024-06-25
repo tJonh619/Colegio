@@ -14,14 +14,14 @@ namespace ApiColegio.Controllers
     {
         private ModeloColegioContainer db = new ModeloColegioContainer();
 
-        // GET: Calificaciones
+        // GET: CalificacionesWeb
         public ActionResult Index()
         {
             var calificaciones = db.Calificaciones.Include(c => c.Materia).Include(c => c.Estudiante);
             return View(calificaciones.ToList());
         }
 
-        // GET: Calificaciones/Details/5
+        // GET: CalificacionesWeb/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,15 +36,22 @@ namespace ApiColegio.Controllers
             return View(calificacion);
         }
 
-        // GET: Calificaciones/Create
+        // GET: CalificacionesWeb/Create
         public ActionResult Create()
         {
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
+
             ViewBag.MateriaId = new SelectList(db.Materias, "Id", "Nombre");
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante");
             return View();
         }
 
-        // POST: Calificaciones/Create
+        // POST: CalificacionesWeb/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,7 +70,7 @@ namespace ApiColegio.Controllers
             return View(calificacion);
         }
 
-        // GET: Calificaciones/Edit/5
+        // GET: CalificacionesWeb/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,12 +82,18 @@ namespace ApiColegio.Controllers
             {
                 return HttpNotFound();
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.MateriaId = new SelectList(db.Materias, "Id", "Nombre", calificacion.MateriaId);
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante", calificacion.EstudianteId);
             return View(calificacion);
         }
 
-        // POST: Calificaciones/Edit/5
+        // POST: CalificacionesWeb/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +111,7 @@ namespace ApiColegio.Controllers
             return View(calificacion);
         }
 
-        // GET: Calificaciones/Delete/5
+        // GET: CalificacionesWeb/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +126,7 @@ namespace ApiColegio.Controllers
             return View(calificacion);
         }
 
-        // POST: Calificaciones/Delete/5
+        // POST: CalificacionesWeb/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

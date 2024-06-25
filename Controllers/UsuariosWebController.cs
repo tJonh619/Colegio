@@ -39,6 +39,12 @@ namespace ApiColegio.Controllers
         // GET: UsuariosWeb/Create
         public ActionResult Create()
         {
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.RolId = new SelectList(db.Roles, "Id", "NombreRol");
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio");
             return View();
@@ -57,7 +63,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.RolId = new SelectList(db.Roles, "Id", "NombreRol", usuario.RolId);
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", usuario.ColegioId);
             return View(usuario);
@@ -75,6 +86,12 @@ namespace ApiColegio.Controllers
             {
                 return HttpNotFound();
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.RolId = new SelectList(db.Roles, "Id", "NombreRol", usuario.RolId);
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", usuario.ColegioId);
             return View(usuario);
@@ -93,6 +110,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.RolId = new SelectList(db.Roles, "Id", "NombreRol", usuario.RolId);
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", usuario.ColegioId);
             return View(usuario);

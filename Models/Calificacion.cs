@@ -9,6 +9,7 @@
 
 namespace ApiColegio.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,9 +20,11 @@ namespace ApiColegio.Models
         public int EstudianteId { get; set; }
         public string NotaCualitativa { get; set; }
         public double NotaNumerica { get; set; }
-        public byte Activo { get; set; }
-    
+        public bool Activo { get; set; }
+
+        [JsonIgnore]
         public virtual Materia Materia { get; set; }
+        [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
     }
 }

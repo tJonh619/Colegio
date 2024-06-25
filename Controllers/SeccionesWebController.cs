@@ -39,6 +39,12 @@ namespace ApiColegio.Controllers
         // GET: SeccionesWeb/Create
         public ActionResult Create()
         {
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio");
             return View();
         }
@@ -56,7 +62,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", seccion.ColegioId);
             return View(seccion);
         }
@@ -73,6 +84,12 @@ namespace ApiColegio.Controllers
             {
                 return HttpNotFound();
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", seccion.ColegioId);
             return View(seccion);
         }
@@ -90,6 +107,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.ColegioId = new SelectList(db.Colegios, "Id", "CodigoColegio", seccion.ColegioId);
             return View(seccion);
         }

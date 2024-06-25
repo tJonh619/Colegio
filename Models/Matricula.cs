@@ -9,9 +9,10 @@
 
 namespace ApiColegio.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Matricula
     {
         public int Id { get; set; }
@@ -23,14 +24,19 @@ namespace ApiColegio.Models
         public string Descripcion { get; set; }
         public string ColegioProcedencia { get; set; }
         public byte Repitente { get; set; }
-        public string Activo { get; set; }
+        public bool Activo { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public int ColegioId { get; set; }
-    
+        
+        [JsonIgnore]
         public virtual Tutor Tutor { get; set; }
+        [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
+        [JsonIgnore]
         public virtual Grado Grado { get; set; }
+        [JsonIgnore]
         public virtual Periodo Periodo { get; set; }
+        [JsonIgnore]
         public virtual Colegio Colegio { get; set; }
     }
 }

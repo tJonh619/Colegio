@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/05/2024 22:02:10
--- Generated from EDMX file: C:\Users\tjonh\source\repos\ApiColegio\ApiColegio\Models\ModeloColegio.edmx
+-- Date Created: 06/23/2024 23:55:31
+-- Generated from EDMX file: C:\Users\tjonh\Desktop\Facultativa 2 Proyecto\API ASP\ApiColegio\ApiColegio\Models\ModeloColegio.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[Estudiantes] (
     [Apellidos] nvarchar(max)  NOT NULL,
     [Sexo] nvarchar(max)  NOT NULL,
     [Direccion] nvarchar(max)  NOT NULL,
-    [Activo] tinyint  NOT NULL,
+    [Activo] bit  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
     [ColegioId] int  NOT NULL
 );
@@ -145,7 +145,7 @@ CREATE TABLE [dbo].[Maestros] (
     [Direccion] nvarchar(max)  NOT NULL,
     [Correo] nvarchar(max)  NOT NULL,
     [Celular] nvarchar(max)  NOT NULL,
-    [Activo] tinyint  NOT NULL,
+    [Activo] bit  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
     [ColegioId] int  NOT NULL
 );
@@ -162,7 +162,7 @@ CREATE TABLE [dbo].[Matriculas] (
     [Descripcion] nvarchar(max)  NOT NULL,
     [ColegioProcedencia] nvarchar(max)  NOT NULL,
     [Repitente] tinyint  NOT NULL,
-    [Activo] nvarchar(max)  NOT NULL,
+    [Activo] bit  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
     [ColegioId] int  NOT NULL
 );
@@ -178,7 +178,7 @@ CREATE TABLE [dbo].[Usuarios] (
     [ClaveUsuario] nvarchar(max)  NOT NULL,
     [CorreoRecuperacion] nvarchar(max)  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
-    [Activo] tinyint  NOT NULL,
+    [Activo] bit  NOT NULL,
     [ColegioId] int  NOT NULL
 );
 GO
@@ -189,7 +189,7 @@ CREATE TABLE [dbo].[Roles] (
     [NombreRol] nvarchar(max)  NOT NULL,
     [DescripcionRol] nvarchar(max)  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -200,7 +200,7 @@ CREATE TABLE [dbo].[Permisos] (
     [Nombre] nvarchar(max)  NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -214,7 +214,7 @@ CREATE TABLE [dbo].[Tutores] (
     [Direccion] nvarchar(max)  NOT NULL,
     [Celular] nvarchar(max)  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -224,7 +224,7 @@ CREATE TABLE [dbo].[Grados] (
     [Nombre] nvarchar(max)  NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
     [Nivel] nvarchar(max)  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -234,7 +234,7 @@ CREATE TABLE [dbo].[Secciones] (
     [Nombre] nvarchar(max)  NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
     [CapacidadEstudiantes] nvarchar(max)  NOT NULL,
-    [Activo] nvarchar(max)  NOT NULL,
+    [Activo] bit  NOT NULL,
     [ColegioId] int  NOT NULL
 );
 GO
@@ -246,7 +246,7 @@ CREATE TABLE [dbo].[Materias] (
     [Nombre] nvarchar(max)  NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
     [Grado] nvarchar(max)  NOT NULL,
-    [Activo] tinyint  NOT NULL,
+    [Activo] bit  NOT NULL,
     [FechaModificacion] datetime  NOT NULL
 );
 GO
@@ -258,7 +258,7 @@ CREATE TABLE [dbo].[Calificaciones] (
     [EstudianteId] int  NOT NULL,
     [NotaCualitativa] nvarchar(max)  NOT NULL,
     [NotaNumerica] float  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -268,7 +268,7 @@ CREATE TABLE [dbo].[Periodos] (
     [Nombre] nvarchar(max)  NOT NULL,
     [Año] int  NOT NULL,
     [FechaModificacion] datetime  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -279,7 +279,7 @@ CREATE TABLE [dbo].[GradosEnCursos] (
     [MaestroId] int  NOT NULL,
     [SeccionId] int  NOT NULL,
     [Año] int  NOT NULL,
-    [Activo] tinyint  NOT NULL
+    [Activo] bit  NOT NULL
 );
 GO
 
@@ -291,7 +291,7 @@ CREATE TABLE [dbo].[Colegios] (
     [Direccion] nvarchar(max)  NOT NULL,
     [Telefono] nvarchar(max)  NOT NULL,
     [Correo] nvarchar(max)  NOT NULL,
-    [Activo] tinyint  NOT NULL,
+    [Activo] bit  NOT NULL,
     [FechaModificacion] datetime  NOT NULL
 );
 GO

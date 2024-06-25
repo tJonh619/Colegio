@@ -39,6 +39,12 @@ namespace ApiColegio.Controllers
         // GET: MatriculasWeb/Create
         public ActionResult Create()
         {
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.TutorId = new SelectList(db.Tutores, "Id", "Nombres");
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante");
             ViewBag.GradoId = new SelectList(db.Grados, "Id", "Nombre");
@@ -60,7 +66,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.TutorId = new SelectList(db.Tutores, "Id", "Nombres", matricula.TutorId);
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante", matricula.EstudianteId);
             ViewBag.GradoId = new SelectList(db.Grados, "Id", "Nombre", matricula.GradoId);
@@ -81,6 +92,12 @@ namespace ApiColegio.Controllers
             {
                 return HttpNotFound();
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.TutorId = new SelectList(db.Tutores, "Id", "Nombres", matricula.TutorId);
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante", matricula.EstudianteId);
             ViewBag.GradoId = new SelectList(db.Grados, "Id", "Nombre", matricula.GradoId);
@@ -102,6 +119,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             ViewBag.TutorId = new SelectList(db.Tutores, "Id", "Nombres", matricula.TutorId);
             ViewBag.EstudianteId = new SelectList(db.Estudiantes, "Id", "CodigoEstudiante", matricula.EstudianteId);
             ViewBag.GradoId = new SelectList(db.Grados, "Id", "Nombre", matricula.GradoId);

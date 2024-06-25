@@ -96,7 +96,7 @@
     <Property Name="Apellidos" Type="String" Nullable="false" />
     <Property Name="Sexo" Type="String" Nullable="false" />
     <Property Name="Direccion" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioEstudiante" FromRole="Estudiante" ToRole="Colegio" />
     <Property Name="ColegioId" Type="Int32" Nullable="false" />
@@ -115,7 +115,7 @@
     <Property Name="Direccion" Type="String" Nullable="false" />
     <Property Name="Correo" Type="String" Nullable="false" />
     <Property Name="Celular" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioMaestro" FromRole="Maestro" ToRole="Colegio" />
     <Property Name="ColegioId" Type="Int32" Nullable="false" />
@@ -137,7 +137,7 @@
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="ColegioProcedencia" Type="String" Nullable="false" />
     <Property Name="Repitente" Type="Byte" Nullable="false" />
-    <Property Name="Activo" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioMatricula" FromRole="Matricula" ToRole="Colegio" />
     <Property Name="ColegioId" Type="Int32" Nullable="false" />
@@ -155,7 +155,7 @@
     <Property Name="ClaveUsuario" Type="String" Nullable="false" />
     <Property Name="CorreoRecuperacion" Type="String" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioUsuario" FromRole="Usuario" ToRole="Colegio" />
     <Property Name="ColegioId" Type="Int32" Nullable="false" />
   </EntityType>
@@ -169,7 +169,7 @@
     <Property Name="NombreRol" Type="String" Nullable="false" />
     <Property Name="DescripcionRol" Type="String" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Permiso">
     <Key>
@@ -181,7 +181,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Tutor">
     <Key>
@@ -196,7 +196,7 @@
     <Property Name="Direccion" Type="String" Nullable="false" />
     <Property Name="Celular" Type="String" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Grado">
     <Key>
@@ -208,7 +208,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="Nivel" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Seccion">
     <Key>
@@ -219,7 +219,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="CapacidadEstudiantes" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="String" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="ModeloColegio.ColegioSeccion" FromRole="Seccion" ToRole="Colegio" />
     <Property Name="ColegioId" Type="Int32" Nullable="false" />
   </EntityType>
@@ -282,7 +282,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="Grado" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
   </EntityType>
   <Association Name="GradoMatricula">
@@ -308,7 +308,7 @@
     <Property Name="EstudianteId" Type="Int32" Nullable="false" />
     <Property Name="NotaCualitativa" Type="String" Nullable="false" />
     <Property Name="NotaNumerica" Type="Double" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="MateriaCalificacion">
     <End Type="ModeloColegio.Materia" Role="Materia" Multiplicity="1" />
@@ -343,7 +343,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Año" Type="Int32" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="PeriodoMatricula">
     <End Type="ModeloColegio.Periodo" Role="Periodo" Multiplicity="1" />
@@ -370,7 +370,7 @@
     <NavigationProperty Name="Seccion" Relationship="ModeloColegio.SeccionGradoEnCurso" FromRole="GradoEnCurso" ToRole="Seccion" />
     <Property Name="SeccionId" Type="Int32" Nullable="false" />
     <Property Name="Año" Type="Int32" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="GradoGradoEnCurso">
     <End Type="ModeloColegio.Grado" Role="Grado" Multiplicity="1" />
@@ -430,7 +430,7 @@
     <Property Name="Direccion" Type="String" Nullable="false" />
     <Property Name="Telefono" Type="String" Nullable="false" />
     <Property Name="Correo" Type="String" Nullable="false" />
-    <Property Name="Activo" Type="Byte" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Matricula" Relationship="ModeloColegio.ColegioMatricula" FromRole="Colegio" ToRole="Matricula" />
     <NavigationProperty Name="Estudiante" Relationship="ModeloColegio.ColegioEstudiante" FromRole="Colegio" ToRole="Estudiante" />

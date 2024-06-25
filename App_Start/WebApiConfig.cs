@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace ApiColegio
@@ -13,15 +10,16 @@ namespace ApiColegio
         {
             // Configuración y servicios de Web API
 
-            // Rutas de Web API
+            // Configurar rutas de Web API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            // Configuración del formateador JSON
             var jsonFormatter = config.Formatters.JsonFormatter;
             jsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             jsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
@@ -29,7 +27,6 @@ namespace ApiColegio
 
             // Eliminar el formateador XML
             config.Formatters.Remove(config.Formatters.XmlFormatter);
-
         }
     }
 }

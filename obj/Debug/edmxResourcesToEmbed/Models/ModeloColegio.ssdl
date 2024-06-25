@@ -94,7 +94,7 @@
     <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
     <Property Name="ColegioId" Type="int" Nullable="false" />
   </EntityType>
@@ -111,7 +111,7 @@
     <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
     <Property Name="ColegioId" Type="int" Nullable="false" />
   </EntityType>
@@ -128,7 +128,7 @@
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ColegioProcedencia" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Repitente" Type="tinyint" Nullable="false" />
-    <Property Name="Activo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
     <Property Name="ColegioId" Type="int" Nullable="false" />
   </EntityType>
@@ -144,7 +144,7 @@
     <Property Name="ClaveUsuario" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CorreoRecuperacion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="ColegioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
@@ -155,7 +155,7 @@
     <Property Name="NombreRol" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DescripcionRol" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Permisos">
     <Key>
@@ -166,7 +166,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Tutores">
     <Key>
@@ -180,7 +180,7 @@
     <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Grados">
     <Key>
@@ -190,7 +190,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Nivel" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Secciones">
     <Key>
@@ -200,7 +200,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CapacidadEstudiantes" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="ColegioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Materias">
@@ -212,7 +212,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Grado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Calificaciones">
@@ -224,7 +224,7 @@
     <Property Name="EstudianteId" Type="int" Nullable="false" />
     <Property Name="NotaCualitativa" Type="nvarchar(max)" Nullable="false" />
     <Property Name="NotaNumerica" Type="float" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Periodos">
     <Key>
@@ -234,7 +234,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Año" Type="int" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="GradosEnCursos">
     <Key>
@@ -245,7 +245,7 @@
     <Property Name="MaestroId" Type="int" Nullable="false" />
     <Property Name="SeccionId" Type="int" Nullable="false" />
     <Property Name="Año" Type="int" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Colegios">
     <Key>
@@ -257,7 +257,7 @@
     <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Activo" Type="tinyint" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="TutorMatricula">

@@ -12,17 +12,17 @@ using ApiColegio.Models;
 
 namespace ApiColegio.Controllers
 {
-    public class ColegiosAPIController : ApiController
+    public class ColegiosApiController : ApiController
     {
         private ModeloColegioContainer db = new ModeloColegioContainer();
 
-        // GET: api/ColegiosAPI
+        // GET: api/ColegiosApi
         public IQueryable<Colegio> GetColegios()
         {
             return db.Colegios;
         }
 
-        // GET: api/ColegiosAPI/5
+        // GET: api/ColegiosApi/5
         [ResponseType(typeof(Colegio))]
         public IHttpActionResult GetColegio(int id)
         {
@@ -35,7 +35,7 @@ namespace ApiColegio.Controllers
             return Ok(colegio);
         }
 
-        // PUT: api/ColegiosAPI/5
+        // PUT: api/ColegiosApi/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutColegio(int id, Colegio colegio)
         {
@@ -70,7 +70,7 @@ namespace ApiColegio.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ColegiosAPI
+        // POST: api/ColegiosApi
         [ResponseType(typeof(Colegio))]
         public IHttpActionResult PostColegio(Colegio colegio)
         {
@@ -85,7 +85,7 @@ namespace ApiColegio.Controllers
             return CreatedAtRoute("DefaultApi", new { id = colegio.Id }, colegio);
         }
 
-        // DELETE: api/ColegiosAPI/5
+        // DELETE: api/ColegiosApi/5
         [ResponseType(typeof(Colegio))]
         public IHttpActionResult DeleteColegio(int id)
         {

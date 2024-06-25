@@ -38,6 +38,12 @@ namespace ApiColegio.Controllers
         // GET: ColegiosWeb/Create
         public ActionResult Create()
         {
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             return View();
         }
 
@@ -54,7 +60,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             return View(colegio);
         }
 
@@ -70,6 +81,12 @@ namespace ApiColegio.Controllers
             {
                 return HttpNotFound();
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             return View(colegio);
         }
 
@@ -86,6 +103,12 @@ namespace ApiColegio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var activoOptions = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sí", Value = "true" },
+                new SelectListItem { Text = "No", Value = "false" }
+            };
+            ViewBag.ActivoOptions = activoOptions;
             return View(colegio);
         }
 

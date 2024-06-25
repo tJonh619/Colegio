@@ -186,7 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalificacionesAPIController.cs" />
     <Compile Include="Controllers\CalificacionesWebController.cs" />
-    <Compile Include="Controllers\ColegiosAPIController.cs" />
+    <Compile Include="Controllers\ColegiosApiController.cs" />
     <Compile Include="Controllers\ColegiosWebController.cs" />
     <Compile Include="Controllers\EstudiantesAPIController.cs" />
     <Compile Include="Controllers\EstudiantesWebController.cs" />
@@ -324,6 +324,7 @@
     <Content Include="Models\ModeloColegio.edmx.diagram">
       <DependentUpon>ModeloColegio.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ApiColegio20240624010004 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -369,11 +370,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Calificaciones\Create.cshtml" />
-    <Content Include="Views\Calificaciones\Delete.cshtml" />
-    <Content Include="Views\Calificaciones\Details.cshtml" />
-    <Content Include="Views\Calificaciones\Edit.cshtml" />
-    <Content Include="Views\Calificaciones\Index.cshtml" />
+    <Content Include="Views\CalificacionesWeb\Create.cshtml" />
+    <Content Include="Views\CalificacionesWeb\Delete.cshtml" />
+    <Content Include="Views\CalificacionesWeb\Details.cshtml" />
+    <Content Include="Views\CalificacionesWeb\Edit.cshtml" />
+    <Content Include="Views\CalificacionesWeb\Index.cshtml" />
     <Content Include="Views\ColegiosWeb\Create.cshtml" />
     <Content Include="Views\ColegiosWeb\Delete.cshtml" />
     <Content Include="Views\ColegiosWeb\Details.cshtml" />

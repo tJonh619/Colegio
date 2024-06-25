@@ -9,6 +9,7 @@
 
 namespace ApiColegio.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,11 +26,14 @@ namespace ApiColegio.Models
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string Nivel { get; set; }
-        public byte Activo { get; set; }
+        public bool Activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Matricula> Matricula { get; set; }
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<GradoEnCurso> GradoEnCurso { get; set; }
     }
 }

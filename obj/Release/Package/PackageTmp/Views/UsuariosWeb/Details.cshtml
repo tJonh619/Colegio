@@ -1,0 +1,90 @@
+﻿@model ApiColegio.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreDeUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreDeUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaveUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaveUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoRecuperacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoRecuperacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol.NombreRol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol.NombreRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colegio.CodigoColegio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colegio.CodigoColegio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
